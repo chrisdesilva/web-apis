@@ -1,7 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useGeolocation } from "./hooks/useGeolocation";
 
 function App() {
+  const { locationInfo, locationError } = useGeolocation();
+
+  console.log({ locationError, locationInfo });
   return (
     <div className="App">
       <header className="App-header">
