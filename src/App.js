@@ -1,11 +1,18 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { useGeolocation } from "./hooks/useGeolocation";
+import { useIsOnline } from "./hooks/useIsOnline";
 
 function App() {
-  const { locationInfo, locationError } = useGeolocation();
+  // const { locationInfo, locationError } = useGeolocation();
+  const isOnline = useIsOnline();
 
-  console.log({ locationError, locationInfo });
+  console.log({ isOnline });
+
+  if (!isOnline) {
+    return <p>You are not connected!!</p>;
+  }
+
   return (
     <div className="App">
       <header className="App-header">
